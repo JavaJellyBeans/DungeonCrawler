@@ -1,6 +1,6 @@
-package DungeonGeneration;
+package dungeonGeneration;
 
-public class DungeonEnums {
+public class Enumerations {
 	public enum Direction {
 		NORTH,
 		SOUTH,
@@ -8,7 +8,7 @@ public class DungeonEnums {
 		WEST
 	}
 	
-	public enum Room {
+	public enum RoomEnum {
 		WALL,
 		PATH,
 		DOOR,
