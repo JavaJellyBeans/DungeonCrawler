@@ -19,7 +19,7 @@ public class Attack implements Ability {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return "A basic attack.";
+		return "A basic attack.\n\tBase Damage - 10";
 	}
 
 }
