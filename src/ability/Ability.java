@@ -1,9 +1,9 @@
 package ability;
 import character.Character;
 
-public interface Ability {
+public abstract class Ability {
 
 	
-	public void use(Character user, Character target);
-	public String getDescription();
+	public abstract void use(Character user, Character target);
+	public abstract String getDescription();
 }
