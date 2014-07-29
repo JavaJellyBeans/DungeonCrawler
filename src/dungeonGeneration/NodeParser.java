@@ -4,7 +4,7 @@ import dungeonGeneration.Enumerations.*;
 
 public class NodeParser {
 	
-	public static Node parseMaze(RoomEnum[][] ara) {
+	public static Node parseNodes(EnumArray[][] ara) {
 		Node curr = new Node();
 		Node start = curr;
 		Node nextRow = curr;
@@ -40,7 +40,7 @@ public class NodeParser {
 					node.setN(curr);
 				}
 				
-				if(ara[i][j] == RoomEnum.STRT)
+				if(ara[i][j] == EnumArray.STRT)
 					start = curr;
 
 				curr = curr.getE();

@@ -1,6 +1,6 @@
 package dungeonGeneration;
 
-import dungeonGeneration.Enumerations.RoomEnum;
+import dungeonGeneration.Enumerations.EnumArray;
 import behaviors.*;
 
 public class RoomFactory {
@@ -15,7 +15,7 @@ public class RoomFactory {
 		return uniqueInstance;
 	}
 	
-	public Room buildRoom(RoomEnum rm) {
+	public Room buildRoom(EnumArray rm) {
 		Room room = new Room();
 		switch(rm) {
 			case PATH:

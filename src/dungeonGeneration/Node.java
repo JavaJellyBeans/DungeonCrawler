@@ -1,5 +1,7 @@
 package dungeonGeneration;
 
+import dungeonGeneration.Enumerations.Direction;
+
 public class Node {
 	Node n, s, e, w;
 	Room room;
@@ -17,6 +19,23 @@ public class Node {
 	public Node getE() {return e;}
 	public Node getW() {return w;}
 	public Room getRoom() {return room;}
+	
+	public Node movePlayer(Direction d) {
+		Node node = null;
+		switch(d) {
+			case SOUTH:
+				node = this.s; break;
+			case NORTH:
+				node = this.n; break;
+			case EAST:
+				node = this.e; break;
+			case WEST:
+				node = this.w; break;
+		}
+		if (node.getRoom().getBehavior().enterable())
+			return node;
+		else return this;
+	}
 	
 
 }

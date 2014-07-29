@@ -8,7 +8,7 @@ public class Enumerations {
 		WEST
 	}
 	
-	public enum RoomEnum {
+	public enum EnumArray {
 		WALL,
 		PATH,
 		DOOR,

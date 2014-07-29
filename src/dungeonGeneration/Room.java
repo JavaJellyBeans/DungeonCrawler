@@ -8,8 +8,8 @@ public class Room {
 	Party occupant;
 	RoomBehavior behavior;
 	
-	public void setBehavior(RoomBehavior behavior) {
-		this.behavior = behavior;
-	}
+	public void setBehavior(RoomBehavior behavior) {this.behavior = behavior;}
+	
+	public RoomBehavior getBehavior() {return this.behavior;}
 
 }
