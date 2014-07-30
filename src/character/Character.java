@@ -31,6 +31,17 @@ public /*abstract*/ class Character {
 		abilities.add(new Attack());
 	}
 	
+	public Character(String name, int hp, int atk, int def, int dex, int agi)
+	{
+		this.name = name;
+		this.hp = this.hpmax = hp;
+		this.atk = atk;
+		this.def = def;
+		this.dex = dex;
+		this.agi = agi;
+		abilities = new ArrayList<Ability>();
+	}
+	
 	//getters and setters
 		public int getHp() {
 			return hp;
