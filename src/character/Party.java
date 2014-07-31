@@ -1,11 +1,12 @@
 package character;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import dungeonGeneration.Coordinate;
 import dungeonGeneration.Enumerations.Direction;
 
-public class Party {
+public class Party extends Observable {
 	ArrayList members;
 	Coordinate coord;
 	
@@ -33,6 +34,8 @@ public class Party {
 				coord.setX(x-1);
 				break;
 		}
+		setChanged();
+		notifyObservers();
 	}
 
 }
