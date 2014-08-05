@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import ability.Ability;
 import ability.Attack;
 
-public /*abstract*/ class Character {
+public abstract class Character {
 	private String name; //name
 	private int hp;		//current hp
 	private int hpmax;	//max hp
@@ -13,7 +13,7 @@ public /*abstract*/ class Character {
 	private int def;	//defense
 	private int dex;	//dexterity (easier to hit with attacks)
 	private int agi;	//agility (easier to dodge enemy attacks)
-
+	private int rage;	//how many turns the character is enraged for
 	
 	private ArrayList<Ability> abilities;	//usable abilities
 	//ArrayList<Equippable> equipped; //equipped items
@@ -29,6 +29,13 @@ public /*abstract*/ class Character {
 		agi = 10;
 		abilities = new ArrayList<Ability>();
 		abilities.add(new Attack());
+		rage = 0;
+	}
+	
+	public Character(String newName)
+	{
+		this();
+		setName(newName);
 	}
 	
 	public Character(String name, int hp, int atk, int def, int dex, int agi)
@@ -40,6 +47,7 @@ public /*abstract*/ class Character {
 		this.dex = dex;
 		this.agi = agi;
 		abilities = new ArrayList<Ability>();
+		rage = 0;
 	}
 	
 	//getters and setters
@@ -86,6 +94,12 @@ public /*abstract*/ class Character {
 			this.name = name;
 		}
 		public ArrayList<Ability> getAbilities() {
+			if(this.rage > 0)
+			{
+				ArrayList<Ability> enraged = new ArrayList<Ability>();
+				enraged.add(new Attack());
+				return enraged;
+			}
 			return abilities;
 		}
 		public void setAbilities(ArrayList<Ability> abilities) {
@@ -98,6 +112,38 @@ public /*abstract*/ class Character {
 		
 		public String toString() {
 			return this.name + "\t" + this.hp + "/" + this.hpmax;
+		}
+		public String details(){
+			return this.toString() + "\n\tAttack:\t" + this.atk + "\n\tDefense:\t" + this.def + "\n\tAgility:\t" + this.agi + "\n\tDexterity:\t" + this.dex;
+		}
+		
+		public void enemyTurn(CharacterParty cp){};
+
+		public void setTaunt(int taunt){}
+		public boolean isTaunting(){return false;}
+		
+		public void setRage(int rage)
+		{
+			if(rage > 0)
+				this.rage = rage;
+			else if(rage < 0 && this.rage > 0)
+				this.rage =- rage;
+		}
+		public boolean isRaging()
+		{	
+			if(this.rage > 0)
+				return true;
+			return false;
+		}
+
+		public void levelUp(int level) {
+			// TODO Auto-generated method stub
+			this.hpmax = this.hpmax + (int) Math.ceil(1.0 * level/this.hpmax);
+			this.hp = hpmax;
+			this.atk = this.atk + (int) Math.ceil(1.0 * level/this.atk);
+			this.def = this.def + (int) Math.ceil(1.0 * level/this.def);
+			this.agi = this.agi + (int) Math.ceil(1.0 * level/this.agi);
+			this.dex = this.dex + (int) Math.ceil(1.0 * level/this.dex);
 		}
 }
 

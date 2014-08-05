@@ -5,7 +5,8 @@ import character.Character;
 
 public class Attack extends Ability {
 
-	public Attack(){}
+	public Attack(){this.level = 0;}
+	
 	@Override
 	public void use(Character user, Character target) {
 		// TODO Auto-generated method stub
@@ -22,7 +23,7 @@ public class Attack extends Ability {
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);
 			//print message with how much damage was dealt
-			System.out.println(damage + " damage dealt to target");
+			System.out.println(user.getName() + " dealt " + damage + " to " + target.getName());
 		}
 		//otherwise
 		else {

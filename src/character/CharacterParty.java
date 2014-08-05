@@ -1,6 +1,7 @@
 package character;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import ability.Ability;
@@ -24,6 +25,11 @@ public class CharacterParty {
 	public void levelUp()
 	{
 		level++;
+		for(Iterator<Character> p = party.iterator(); p.hasNext();)
+		{
+			Character c = p.next();
+			c.levelUp(level);
+		}
 		//foreach(Character c in party)
 		//	c.levelUp(level);
 	}
@@ -98,5 +104,26 @@ public class CharacterParty {
 				defeated = false;
 		}
 		return defeated;
+	}
+	
+	public void enemyTurn() {
+		
+	}
+
+	public void showParty() {
+		// TODO Auto-generated method stub
+		for(Iterator<Character> p = party.iterator(); p.hasNext();)
+		{
+			Character c = p.next();
+			System.out.println(c.toString());
+			}
+	}
+	
+	public void printDetail(){
+		for(Iterator<Character> p = party.iterator(); p.hasNext();)
+		{
+			Character c = p.next();
+			System.out.println(c.details());
+		}
 	}
 }

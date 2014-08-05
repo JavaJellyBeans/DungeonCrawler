@@ -2,6 +2,8 @@ package factory;
 
 import ability.Attack;
 import character.Character;
+import character.Enemy;
+import character.Player;
 
 public class Factory {
 
@@ -29,7 +31,11 @@ public class Factory {
 			System.out.println("Error: Incorrect Player Character creation syntax");
 			return null;
 		}
-		Character c = new Character("Player", 20, 10, 10, 10, 10);
+		Character c;
+		if(parsedInstructions.length == 2)
+			c = new Player(parsedInstructions[1], 20, 10, 10, 10, 10);
+		else
+			c = new Player("Player", 20, 10, 10, 10, 10);
 		c.addAbility(new Attack());
 		
 		return c;
@@ -43,9 +49,11 @@ public class Factory {
 			System.out.println("Error: Incorrect Enemy Character creation syntax");
 			return null;
 		}
-		Character c = new Character("Enemy", 20, 10, 10, 10, 10);
+		Character c = new Enemy("Enemy", 20, 10, 10, 10, 10);
 		c.addAbility(new Attack());
 		
 		return c;
 	}
+	
+	
 }

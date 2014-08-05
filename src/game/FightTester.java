@@ -1,5 +1,6 @@
 package game;
 import character.Character;
+import character.CharacterParty;
 import factory.Factory;
 
 public class FightTester {
@@ -7,11 +8,14 @@ public class FightTester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Factory f = new Factory();
-		Character player = f.getCharacter("Player");
-		Character enemy = f.getCharacter("Enemy");
+		CharacterParty player = new CharacterParty();
+		player.add(f.getCharacter("Player Player1"));
+		player.add(f.getCharacter("Player Player2"));
 		
-		Fight fight = new Fight(player, enemy);
+		player.printDetail();
+		Fight fight = new Fight(player);
 		fight.battle();
+		player.printDetail();
 	}
 
 }

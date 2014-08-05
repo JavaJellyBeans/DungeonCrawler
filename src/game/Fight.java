@@ -1,22 +1,27 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import ability.Ability;
 import character.CharacterParty;
 import character.Party;
 import character.Character;
+import factory.Factory;
 
 public class Fight {
 
 	private CharacterParty players;
 	private CharacterParty enemies;
 	
+	private Factory f;
+	
 	public Fight()
 	{
 		players = new CharacterParty();
 		enemies = new CharacterParty();
+		f = new Factory();
 	}
 	public Fight(ArrayList<Character> newPlayers, ArrayList<Character> newEnemies)
 	{
@@ -42,6 +47,12 @@ public class Fight {
 		players.add(newPlayer);
 		enemies.addAll(newEnemies);
 	}
+	public Fight(CharacterParty newPlayer)
+	{
+		this();
+		players = newPlayer;
+		enemies.add(f.getEnemyCharacter("Enemy"));
+	}
 	
 	public void battle()
 	{
@@ -50,9 +61,10 @@ public class Fight {
 		//player characters go down the list taking a turn
 		
 			//foreach character c in the party
-			for(int i = 0; i < players.size(); i++)
+			for(Iterator<Character> party = players.getParty().iterator(); party.hasNext();)
 			{
-				playerTurn(players.get(i));
+				Character c = party.next();
+				playerTurn(c);
 				if(over())
 					break;
 			}
@@ -63,6 +75,13 @@ public class Fight {
 			
 			//foreach character c in the party
 				//performEnemyAction
+			for(Iterator<Character> party = enemies.getParty().iterator(); party.hasNext();)
+			{
+				Character c = party.next();
+				c.enemyTurn(players);
+				if(over())
+					break;
+			}
 		}while(!over());
 		
 		if(!players.defeated())
@@ -88,13 +107,12 @@ public class Fight {
 	
 	public void playerTurn(Character c)
 	{
-		//int selection = showActions(c)
+		players.showParty();
+		c.setTaunt(-1);
 		Ability selectedAction = players.showActions(c);
-		//selectAction(c, selection)
 		Character target = enemies.showTargets();
-		//Character target = selectTarget
-		//performAction(c, target)
 		selectedAction.use(c, target);
+		c.setRage(-1);
 	}
 	
 
