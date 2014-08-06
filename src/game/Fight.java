@@ -17,7 +17,7 @@ public class Fight {
 	
 	private Factory f;
 	
-	public Fight()
+	private Fight()
 	{
 		players = new CharacterParty();
 		enemies = new CharacterParty();
@@ -28,30 +28,36 @@ public class Fight {
 		this();
 		players.addAll(newPlayers);
 		enemies.addAll(newEnemies);
+		battle();
 	}
 	public Fight(Character newPlayer, Character newEnemy)
 	{
 		this();
 		players.add(newPlayer);
 		enemies.add(newEnemy);
+		battle();
 	}
 	public Fight(ArrayList<Character> newPlayers, Character newEnemy)
 	{
 		this();
 		players.addAll(newPlayers);
 		enemies.add(newEnemy);
+		battle();
 	}
 	public Fight(Character newPlayer, ArrayList<Character> newEnemies)
 	{
 		this();
 		players.add(newPlayer);
 		enemies.addAll(newEnemies);
+		battle();
 	}
 	public Fight(CharacterParty newPlayer)
 	{
 		this();
 		players = newPlayer;
 		enemies.add(f.getEnemyCharacter("Enemy"));
+		enemies.add(f.getEnemyCharacter("Enemy"));
+		battle();
 	}
 	
 	public void battle()
@@ -64,7 +70,8 @@ public class Fight {
 			for(Iterator<Character> party = players.getParty().iterator(); party.hasNext();)
 			{
 				Character c = party.next();
-				playerTurn(c);
+				if(c.getHp() > 0)
+					playerTurn(c);
 				if(over())
 					break;
 			}
@@ -78,7 +85,8 @@ public class Fight {
 			for(Iterator<Character> party = enemies.getParty().iterator(); party.hasNext();)
 			{
 				Character c = party.next();
-				c.enemyTurn(players);
+				if(c.getHp() > 0)
+					c.enemyTurn(players);
 				if(over())
 					break;
 			}
@@ -108,6 +116,7 @@ public class Fight {
 	public void playerTurn(Character c)
 	{
 		players.showParty();
+		enemies.showParty();
 		c.setTaunt(-1);
 		Ability selectedAction = players.showActions(c);
 		Character target = enemies.showTargets();

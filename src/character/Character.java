@@ -14,6 +14,7 @@ public abstract class Character {
 	private int dex;	//dexterity (easier to hit with attacks)
 	private int agi;	//agility (easier to dodge enemy attacks)
 	private int rage;	//how many turns the character is enraged for
+	private int level;
 	
 	private ArrayList<Ability> abilities;	//usable abilities
 	//ArrayList<Equippable> equipped; //equipped items
@@ -27,6 +28,7 @@ public abstract class Character {
 		def = 10;
 		dex = 10;
 		agi = 10;
+		level = 1;
 		abilities = new ArrayList<Ability>();
 		abilities.add(new Attack());
 		rage = 0;
@@ -46,6 +48,7 @@ public abstract class Character {
 		this.def = def;
 		this.dex = dex;
 		this.agi = agi;
+		level = 1;
 		abilities = new ArrayList<Ability>();
 		rage = 0;
 	}
@@ -111,7 +114,7 @@ public abstract class Character {
 	//end getters and setters
 		
 		public String toString() {
-			return this.name + "\t" + this.hp + "/" + this.hpmax;
+			return this.name + "\t" + this.hp + "/" + this.hpmax + "\tLevel " + this.level;
 		}
 		public String details(){
 			return this.toString() + "\n\tAttack:\t" + this.atk + "\n\tDefense:\t" + this.def + "\n\tAgility:\t" + this.agi + "\n\tDexterity:\t" + this.dex;
@@ -138,6 +141,7 @@ public abstract class Character {
 
 		public void levelUp(int level) {
 			// TODO Auto-generated method stub
+			this.level = level;
 			this.hpmax = this.hpmax + (int) Math.ceil(1.0 * level/this.hpmax);
 			this.hp = hpmax;
 			this.atk = this.atk + (int) Math.ceil(1.0 * level/this.atk);

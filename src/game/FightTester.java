@@ -11,10 +11,12 @@ public class FightTester {
 		CharacterParty player = new CharacterParty();
 		player.add(f.getCharacter("Player Player1"));
 		player.add(f.getCharacter("Player Player2"));
+		player.add(f.getCharacter("Player Player3"));
 		
+		//for(int i = 0; i < 20; i++)
+			//player.levelUp();
 		player.printDetail();
 		Fight fight = new Fight(player);
-		fight.battle();
 		player.printDetail();
 	}
 

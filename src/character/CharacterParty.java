@@ -87,7 +87,7 @@ public class CharacterParty {
 		System.out.print("Selection: ");
 		Scanner kb = new Scanner(System.in);
 		int selection = kb.nextInt();
-		while(selection >= party.size() || selection < 0)
+		while(selection >= party.size() || selection < 0 || party.get(selection).getHp() <= 0)
 		{
 			System.out.print("Not a valid option. Please try again\nSelection: ");
 			selection = kb.nextInt();
