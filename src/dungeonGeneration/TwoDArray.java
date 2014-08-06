@@ -21,7 +21,7 @@ public class TwoDArray{
 	}
 	
 	public EnumArray[][] getArray() {return this.ara;}
-	public Coordinate getStart() {return this.start;}
+	public Coordinate getStart() {return new Coordinate(start.getX(), start.getY());}
 	public Coordinate getExit() {return this.exit;}
 
 	private static EnumArray[][] setWall(int size) {

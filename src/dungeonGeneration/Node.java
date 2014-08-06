@@ -32,7 +32,7 @@ public class Node {
 			case WEST:
 				node = this.w; break;
 		}
-		if (node.getRoom().getBehavior().enterable())
+		if (node != null && node.getRoom().getBehavior().enterable())
 			return node;
 		else return this;
 	}

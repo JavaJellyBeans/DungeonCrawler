@@ -38,7 +38,7 @@ public class LocationObserver implements Observer {
 				System.out.println("game won!");
 			}
 			if (coord.equals(start)) {
-				System.out.println("start: " + start.toString() + " player: " + coord.toString());
+				System.out.println("Can't turn back now!");
 			}
 
 		}
