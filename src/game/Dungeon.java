@@ -14,15 +14,15 @@ import dungeonGeneration.Map;
 public class Dungeon {
 	
 	private Map map;
-	private Party p1;
+	private Party player;
 	private LocationObserver obs;
 	private static Dungeon uniqueInstance;
 	
 	private Dungeon() {
-		map = new Map();
-		p1 = new Party(null, map.getStart());
+		map = Map.getInstance();
+		player = new Party(null, map.getStart());
 		obs = LocationObserver.getInstance(map);
-		p1.addObserver(obs);
+		player.addObserver(obs);
 	}
 	
 	public static Dungeon getInstance() {
@@ -31,7 +31,7 @@ public class Dungeon {
 		return uniqueInstance;
 	}
 	
-	public Party getParty() {return this.p1;}
+	public Party getPlayer() {return this.player;}
 	public Map getMap(){return this.map;}
 
 

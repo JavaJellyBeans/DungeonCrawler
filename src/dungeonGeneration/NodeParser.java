@@ -14,7 +14,7 @@ public class NodeParser {
 		for (int i = 0; i < ara.length; i++) {
 			for (int j = 0; j < ara[i].length; j++) {
 
-				curr.setRoom(factory.buildRoom(ara[i][j]));
+				curr.setRoom(factory.buildRoom(ara[i][j], i, j));
 				
 				//setting East & West links
 				if (j < ara[i].length - 1){

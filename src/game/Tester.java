@@ -15,34 +15,35 @@ public class Tester {
 		Dungeon dungeon = Dungeon.getInstance();
 		Display.display(dungeon);
 		Map map = dungeon.getMap();
-		Party p1 = dungeon.getParty();
+		Party player = dungeon.getPlayer();
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String line = "";
-		System.out.println("here");
+		
 		try {
+			
 		   while (line.equalsIgnoreCase("quit") == false) {
 		       line = in.readLine();
 
 				if(line.equalsIgnoreCase("w")){
 					//p.setDirection(Direction.NORTH);
 					if(map.movePlayer(Direction.NORTH))
-						p1.move(Direction.NORTH);
+						player.move(Direction.NORTH);
 				}
 				if(line.equalsIgnoreCase("s")){
 					//p.setDirection(Direction.SOUTH);
 					if(map.movePlayer(Direction.SOUTH))
-						p1.move(Direction.SOUTH);
+						player.move(Direction.SOUTH);
 				}
 				if(line.equalsIgnoreCase("a")){
 					//p.setDirection(Direction.WEST);
 					if(map.movePlayer(Direction.WEST))
-						p1.move(Direction.WEST);
+						player.move(Direction.WEST);
 				}
 				if(line.equalsIgnoreCase("d")){
 					//p.setDirection(Direction.EAST);
 					if(map.movePlayer(Direction.EAST))
-						p1.move(Direction.EAST);				
+						player.move(Direction.EAST);				
 				}
 				
 				Display.display(dungeon);
@@ -51,6 +52,9 @@ public class Tester {
 		   in.close();
 		} catch (Exception ex) {
 			System.out.println(ex);
+		} finally {
+			try {in.close();} 
+			catch (Exception ex) {}
 		}
 
 	}

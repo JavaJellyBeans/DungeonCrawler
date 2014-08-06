@@ -1,6 +1,7 @@
 package dungeonGeneration;
 
 import game.Dungeon;
+import game.EnemyPartyList;
 import character.Party;
 import dungeonGeneration.Enumerations.EnumArray;
 
@@ -8,7 +9,7 @@ public class Display {
 	
 	public static void display(Dungeon d) {
 		EnumArray[][] ara = d.getMap().getArray();
-		Coordinate partyLoc = d.getParty().getLocation();
+		Coordinate partyLoc = d.getPlayer().getLocation();
 	
 	    StringBuilder sb = new StringBuilder();
 	    	
@@ -16,6 +17,8 @@ public class Display {
 	    	    for (int j = 0; j< ara[i].length; j++) {
 	    	    	if (partyLoc.equals(j,i))
 	    	    		sb.append(" P ");
+	    	    	else if (EnemyPartyList.getInstance().coordMatch(new Coordinate(j,i)))
+	    	    		sb.append(" X ");
 	    	    	else {
 		    	    	switch (ara[i][j]) {
 		    	    	case WALL:
