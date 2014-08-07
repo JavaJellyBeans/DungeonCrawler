@@ -1,14 +1,6 @@
 package game;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import dungeonGeneration.Display;
-import dungeonGeneration.Enumerations.Direction;
-import character.Party;
+import character.*;
 import dungeonGeneration.Map;
 
 public class Dungeon {
@@ -20,8 +12,8 @@ public class Dungeon {
 	
 	private Dungeon() {
 		map = Map.getInstance();
-		player = new Party(null, map.getStart());
-		obs = LocationObserver.getInstance(map);
+		player = new Player(null, map.getStart());
+		obs = LocationObserver.getInstance();
 		player.addObserver(obs);
 	}
 	
@@ -33,6 +25,13 @@ public class Dungeon {
 	
 	public Party getPlayer() {return this.player;}
 	public Map getMap(){return this.map;}
+	
+	public void reset() {
+		EnemyLocator.reset();
+		map.reset();
+		obs.reset();
+		uniqueInstance = new Dungeon();
+	}
 
 
 }

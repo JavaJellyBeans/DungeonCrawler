@@ -1,5 +1,9 @@
 package effects;
 
+import dungeonGeneration.Display;
+import game.Dungeon;
+import game.Tester;
+
 public class WinGame implements PlayerEffect {
 
 	@Override
@@ -11,6 +15,8 @@ public class WinGame implements PlayerEffect {
 	@Override
 	public void description() {
 		System.out.println("You won!");
+		Dungeon.getInstance().reset();
+		Tester.main(null);
 	}
 
 }

@@ -26,30 +26,36 @@ public class Tester {
 		       line = in.readLine();
 
 				if(line.equalsIgnoreCase("w")){
-					//p.setDirection(Direction.NORTH);
-					if(map.movePlayer(Direction.NORTH))
+					if(map.moveParty(player, Direction.NORTH)) {
 						player.move(Direction.NORTH);
+						EnemyLocator.moveAll();
+					}
 				}
 				if(line.equalsIgnoreCase("s")){
-					//p.setDirection(Direction.SOUTH);
-					if(map.movePlayer(Direction.SOUTH))
+					if(map.moveParty(player, Direction.SOUTH)) {
 						player.move(Direction.SOUTH);
+						EnemyLocator.moveAll();
+					}
 				}
 				if(line.equalsIgnoreCase("a")){
-					//p.setDirection(Direction.WEST);
-					if(map.movePlayer(Direction.WEST))
+					if(map.moveParty(player, Direction.WEST)) {
 						player.move(Direction.WEST);
+						EnemyLocator.moveAll();
+					}
 				}
 				if(line.equalsIgnoreCase("d")){
-					//p.setDirection(Direction.EAST);
-					if(map.movePlayer(Direction.EAST))
-						player.move(Direction.EAST);				
+					if(map.moveParty(player, Direction.EAST)) {
+						player.move(Direction.EAST);	
+						EnemyLocator.moveAll();
+					}
 				}
 				
 				Display.display(dungeon);
+				
 		   }
 
 		   in.close();
+		   
 		} catch (Exception ex) {
 			System.out.println(ex);
 		} finally {

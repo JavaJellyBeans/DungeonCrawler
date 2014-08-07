@@ -5,8 +5,12 @@ import effects.PlayerEffect;
 public class ItemBehavior implements RoomBehavior {
 	private PlayerEffect effect = null;
 	
-	public ItemBehavior(PlayerEffect effect) {
-		this.effect = effect;
+	public ItemBehavior(PlayerEffect e) {
+		this.effect = e;
+	}
+	
+	public void setEffect(PlayerEffect e) {
+		this.effect = e;
 	}
 	
 	@Override
@@ -16,6 +20,11 @@ public class ItemBehavior implements RoomBehavior {
 	
 	public void description() {
 		effect.description();
+	}
+
+	@Override
+	public PlayerEffect getEffect() {
+		return effect;
 	}
 
 }

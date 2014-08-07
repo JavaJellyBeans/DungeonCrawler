@@ -4,14 +4,15 @@ import behaviors.RoomBehavior;
 import character.Party;
 
 public class Room {
-//	boolean occupied = false;
-//	Party occupant;
 	RoomBehavior behavior;
+	/*boolean occupied = false;*/
 	
 	public void setBehavior(RoomBehavior behavior) {this.behavior = behavior;}
-//	public void setOccupied(Party party) {this.occupant = party; this.occupied = true;}
+	/*public void setOccupied(boolean occupied) 	   {this.occupied = occupied;}*/
+
 	
-	public RoomBehavior getBehavior() {return this.behavior;}
-//	public Party getOccupant() {return this.occupant;}
+	public RoomBehavior getBehavior() {return behavior;}
+	/*public boolean occupied() 		  {return occupied;}*/
+
 
 }

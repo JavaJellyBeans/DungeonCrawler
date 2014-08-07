@@ -20,8 +20,9 @@ public class Node {
 	public Node getW() {return w;}
 	public Room getRoom() {return room;}
 	
-	public Node movePlayer(Direction d) {
+	public boolean/*Node*/ moveParty(Direction d) {
 		Node node = null;
+		
 		switch(d) {
 			case SOUTH:
 				node = this.s; break;
@@ -32,9 +33,17 @@ public class Node {
 			case WEST:
 				node = this.w; break;
 		}
-		if (node != null && node.getRoom().getBehavior().enterable())
-			return node;
-		else return this;
+		
+		if (node != null /*&& !node.getRoom().occupied()*/) {
+/*			node.getRoom().getBehavior().getEffect().description();*/
+			return node.getRoom().getBehavior().enterable();
+		}
+			
+		return false;
+		/*if (node != null && node.getRoom().getBehavior().enterable()) /*{
+/*			return node;
+		}
+		else return this;*/
 	}
 	
 

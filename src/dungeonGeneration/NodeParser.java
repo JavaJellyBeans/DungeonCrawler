@@ -4,17 +4,21 @@ import dungeonGeneration.Enumerations.*;
 
 public class NodeParser {
 	
+	/*Copied & modified from Andrew McCall's code from CSCD350 project*/
 	public static Node parseNodes(EnumArray[][] ara) {
 		Node curr = new Node();
 		Node start = curr;
 		Node nextRow = curr;
 		Node nextCol = curr;
-		RoomFactory factory = RoomFactory.getInstance();
+//		RoomFactory factory = RoomFactory.getInstance();
 		
 		for (int i = 0; i < ara.length; i++) {
 			for (int j = 0; j < ara[i].length; j++) {
+				
+				if (i == 0 && j == 0)
+					start = curr;
 
-				curr.setRoom(factory.buildRoom(ara[i][j], i, j));
+				curr.setRoom(RoomFactory.buildRoom(ara[i][j], i, j));
 				
 				//setting East & West links
 				if (j < ara[i].length - 1){
@@ -40,8 +44,8 @@ public class NodeParser {
 					node.setN(curr);
 				}
 				
-				if(ara[i][j] == EnumArray.STRT)
-					start = curr;
+/*				if(ara[i][j] == EnumArray.STRT)
+					start = curr;*/
 
 				curr = curr.getE();
 			}

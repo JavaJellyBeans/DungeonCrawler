@@ -5,10 +5,12 @@ import java.util.Observable;
 
 import dungeonGeneration.Coordinate;
 import dungeonGeneration.Enumerations.Direction;
+import dungeonGeneration.Node;
 
 public class Party extends Observable {
 	ArrayList members;
 	Coordinate coord;
+	/*Node curr;*/
 	
 	public Party(ArrayList list, Coordinate start) {
 		members = list;
