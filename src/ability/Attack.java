@@ -5,7 +5,7 @@ import character.Character;
 
 public class Attack extends Ability {
 
-	public Attack(){this.level = 0;}
+	public Attack(){this.level = 0; this.helpful = false; this.aoe = false;}
 	
 	@Override
 	public void use(Character user, Character target) {

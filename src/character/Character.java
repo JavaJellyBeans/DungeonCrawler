@@ -120,7 +120,7 @@ public abstract class Character {
 			return this.toString() + "\n\tAttack:\t" + this.atk + "\n\tDefense:\t" + this.def + "\n\tAgility:\t" + this.agi + "\n\tDexterity:\t" + this.dex;
 		}
 		
-		public void enemyTurn(CharacterParty cp){};
+		public void takeTurn(CharacterParty allies, CharacterParty enemy){};
 
 		public void setTaunt(int taunt){}
 		public boolean isTaunting(){return false;}

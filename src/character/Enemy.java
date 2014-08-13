@@ -37,11 +37,11 @@ public class Enemy extends Character {
 
 	
 	@Override
-	public void enemyTurn(CharacterParty cp) {
+	public void takeTurn(CharacterParty allies, CharacterParty enemy) {
 		// TODO Auto-generated method stub
 		//depending on character level, determine the skill and target
-		Character target = getTarget(cp);
-		Ability use = getAbility(cp);
+		Character target = getTarget(enemy);
+		Ability use = getAbility(enemy);
 		use.use(this, target);
 		setRage(-1);
 	}

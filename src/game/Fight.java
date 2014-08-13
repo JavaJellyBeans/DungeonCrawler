@@ -55,6 +55,7 @@ public class Fight {
 	{
 		this();
 		players = newPlayer;
+		enemies = f.getEnemyParty(players.getLevel());
 		enemies.add(f.getEnemyCharacter("Enemy"));
 		enemies.add(f.getEnemyCharacter("Enemy"));
 		battle();
@@ -71,7 +72,8 @@ public class Fight {
 			{
 				Character c = party.next();
 				if(c.getHp() > 0)
-					playerTurn(c);
+					//playerTurn(c);
+					c.takeTurn(players, enemies);
 				if(over())
 					break;
 			}
@@ -86,7 +88,7 @@ public class Fight {
 			{
 				Character c = party.next();
 				if(c.getHp() > 0)
-					c.enemyTurn(players);
+					c.takeTurn(enemies, players);
 				if(over())
 					break;
 			}
@@ -111,27 +113,5 @@ public class Fight {
 			}
 		}
 		return false;
-	}
-	
-	public void playerTurn(Character c)
-	{
-		players.showParty();
-		enemies.showParty();
-		c.setTaunt(-1);
-		Ability selectedAction = players.showActions(c);
-		Character target = enemies.showTargets();
-		selectedAction.use(c, target);
-		c.setRage(-1);
-	}
-	
-
-
-	public void enemyTurn(Character c)
-	{
-		//select opponent based on lowest hp percentage
-			//otherwise random
-		//select action
-			//random
-		//performAction(c, target)
 	}
 }

@@ -17,6 +17,12 @@ public class CharacterParty {
 		level = 0;
 	}
 	
+	public CharacterParty(int level)
+	{
+		this();
+		this.level = level;
+	}
+	
 	public void addCharacter(Character c)
 	{
 		party.add(c);
@@ -56,6 +62,8 @@ public class CharacterParty {
 		// TODO Auto-generated method stub
 		return party.get(i);
 	}
+	
+	public int getLevel(){	return this.level;	}
 
 	public Ability showActions(Character c) {
 		// TODO Auto-generated method stub
@@ -104,10 +112,6 @@ public class CharacterParty {
 				defeated = false;
 		}
 		return defeated;
-	}
-	
-	public void enemyTurn() {
-		
 	}
 
 	public void showParty() {
