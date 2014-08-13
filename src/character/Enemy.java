@@ -40,10 +40,13 @@ public class Enemy extends Character {
 	public void takeTurn(Party allies, Party enemy) {
 		// TODO Auto-generated method stub
 		//depending on character level, determine the skill and target
-		Character target = getTarget(enemy);
-		Ability use = getAbility(enemy);
-		use.use(this, target);
-		setRage(-1);
+		if(this.getHp() > 0)
+		{
+			Character target = getTarget(enemy);
+			Ability use = getAbility(enemy);
+			use.use(this, target);
+			setRage(-1);
+		}
 	}
 
 	private Ability getAbility(Party cp) {

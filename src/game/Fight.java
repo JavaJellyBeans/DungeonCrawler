@@ -70,9 +70,7 @@ public class Fight {
 			for(Iterator<Character> party = players.getParty().iterator(); party.hasNext();)
 			{
 				Character c = party.next();
-				if(c.getHp() > 0)
-					//playerTurn(c);
-					c.takeTurn(players, enemies);
+				c.takeTurn(players, enemies);
 				if(over())
 					break;
 			}
@@ -86,8 +84,7 @@ public class Fight {
 			for(Iterator<Character> party = enemies.getParty().iterator(); party.hasNext();)
 			{
 				Character c = party.next();
-				if(c.getHp() > 0)
-					c.takeTurn(enemies, players);
+				c.takeTurn(enemies, players);
 				if(over())
 					break;
 			}

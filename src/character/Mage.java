@@ -2,21 +2,24 @@ package character;
 
 import java.util.Random;
 
-import ability.Ability;
+public class Mage extends Player {
 
-public class Rogue extends Player {
-
-	public Rogue()
-	{
-		super("Rogue", 20, 7, 7, 13, 13);
+	public Mage() {
+		// TODO Auto-generated constructor stub
+		super("Mage", 23, 8, 8, 8, 8);
 	}
-	
-	public Rogue(String newName)
-	{
+
+	public Mage(String newName) {
 		this();
 		setName(newName);
+		// TODO Auto-generated constructor stub
 	}
-	
+
+	public Mage(String name, int hp, int atk, int def, int dex, int agi) {
+		super(name, hp, atk, def, dex, agi);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void levelUp(int newLevel)
 	{
@@ -29,12 +32,12 @@ public class Rogue extends Player {
 		this.dex = this.dex + (int) Math.ceil(1.0 * level/this.dex);*/
 		setLevel(newLevel);
 		Random gen = new Random();
-		this.setHpmax(this.getHpmax() + gen.nextInt(8) + 1);
+		this.setHpmax(this.getHpmax() + gen.nextInt(6) + 1);
 		this.setHp(this.getHpmax());
 		this.setAtk(getAtk() + (int) Math.ceil(this.getLevel()/7));
 		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/7));
-		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/2));
-		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/2));
+		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/7));
+		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/7));
 		getNewAbility();
 	}
 
@@ -43,23 +46,23 @@ public class Rogue extends Player {
 		// TODO Auto-generated method stub
 		if(this.getLevel() == 2)
 		{
-			//sneak attack
-			//deals damage based on dex instead of atk
+			//lightning strike
+			//weak double hit to target enemy
 		}
 		if(this.getLevel() == 4)
 		{
-			//snipe
-			//chance to get a critical hit
+			//mass fireball
+			//aoe hits everything
 		}
 		if(this.getLevel() == 7)
 		{
-			//power shot
-			//powerful bow shot
+			//drain life
+			//damage + heal
 		}
 		if(this.getLevel() == 10)
 		{
-			//rage shot
-			//little damage, but enrages foe
+			//meteor storm
+			//aoe hits everything
 		}
 	}
 }

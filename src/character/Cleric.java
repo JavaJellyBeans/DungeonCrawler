@@ -2,21 +2,24 @@ package character;
 
 import java.util.Random;
 
-import ability.Ability;
+public class Cleric extends Player {
 
-public class Rogue extends Player {
-
-	public Rogue()
-	{
-		super("Rogue", 20, 7, 7, 13, 13);
+	public Cleric() {
+		// TODO Auto-generated constructor stub
+		super("Cleric", 23, 8, 11, 8, 11);
 	}
-	
-	public Rogue(String newName)
-	{
+
+	public Cleric(String newName) {
 		this();
 		setName(newName);
+		// TODO Auto-generated constructor stub
 	}
-	
+
+	public Cleric(String name, int hp, int atk, int def, int dex, int agi) {
+		super(name, hp, atk, def, dex, agi);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void levelUp(int newLevel)
 	{
@@ -32,9 +35,9 @@ public class Rogue extends Player {
 		this.setHpmax(this.getHpmax() + gen.nextInt(8) + 1);
 		this.setHp(this.getHpmax());
 		this.setAtk(getAtk() + (int) Math.ceil(this.getLevel()/7));
-		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/7));
-		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/2));
-		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/2));
+		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/4));
+		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/7));
+		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/4));
 		getNewAbility();
 	}
 
@@ -43,23 +46,21 @@ public class Rogue extends Player {
 		// TODO Auto-generated method stub
 		if(this.getLevel() == 2)
 		{
-			//sneak attack
-			//deals damage based on dex instead of atk
+			//calm
+			//gets rid of rage
 		}
 		if(this.getLevel() == 4)
 		{
-			//snipe
-			//chance to get a critical hit
+			//mass heal
 		}
 		if(this.getLevel() == 7)
 		{
-			//power shot
-			//powerful bow shot
+			//mass restore (heal + calm)
 		}
 		if(this.getLevel() == 10)
 		{
-			//rage shot
-			//little damage, but enrages foe
+			//revive
 		}
 	}
+
 }

@@ -45,33 +45,37 @@ public abstract class Player extends Character {
 	@Override
 	public void takeTurn(Party allies, Party enemy)
 	{
-		allies.showParty();
-		enemy.showParty();
-		setTaunt(-1);
-		Ability selectedAction = showActions();
-		Character target;
-		if(selectedAction.isAOE())
+		if(this.getHp() > 0)
 		{
-			if(selectedAction.isHelpful())
+			allies.showParty();
+			enemy.showParty();
+			setTaunt(-1);
+			Ability selectedAction = showActions();
+			Character target;
+			if(selectedAction.isAOE())
 			{
-				for(int i = 0; i < allies.size(); i++)
-					selectedAction.use(this, allies.get(i));
+				if(selectedAction.isHelpful())
+				{
+					for(int i = 0; i < allies.size(); i++)
+						selectedAction.use(this, allies.get(i));
+				}
+				else
+				{
+					for(int i = 0; i < enemy.size(); i++)
+						selectedAction.use(this, enemy.get(i));
+				}
 			}
 			else
 			{
-				for(int i = 0; i < enemy.size(); i++)
-					selectedAction.use(this, enemy.get(i));
+				if(selectedAction.isHelpful())
+					target = allies.showTargets();
+				else
+					target = enemy.showTargets();
+				selectedAction.use(this, target);
 			}
+			setRage(-1);
 		}
-		else
-		{
-			if(selectedAction.isHelpful())
-				target = allies.showTargets();
-			else
-				target = enemy.showTargets();
-			selectedAction.use(this, target);
-		}
-		setRage(-1);
+		
 	}
 
 	private Ability showActions() {
