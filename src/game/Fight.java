@@ -5,22 +5,21 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import ability.Ability;
-import character.CharacterParty;
 import character.Party;
 import character.Character;
 import factory.Factory;
 
 public class Fight {
 
-	private CharacterParty players;
-	private CharacterParty enemies;
+	private Party players;
+	private Party enemies;
 	
 	private Factory f;
 	
 	private Fight()
 	{
-		players = new CharacterParty();
-		enemies = new CharacterParty();
+		players = new Party();
+		enemies = new Party();
 		f = new Factory();
 	}
 	public Fight(ArrayList<Character> newPlayers, ArrayList<Character> newEnemies)
@@ -51,7 +50,7 @@ public class Fight {
 		enemies.addAll(newEnemies);
 		battle();
 	}
-	public Fight(CharacterParty newPlayer)
+	public Fight(Party newPlayer)
 	{
 		this();
 		players = newPlayer;

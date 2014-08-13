@@ -37,7 +37,7 @@ public class Enemy extends Character {
 
 	
 	@Override
-	public void takeTurn(CharacterParty allies, CharacterParty enemy) {
+	public void takeTurn(Party allies, Party enemy) {
 		// TODO Auto-generated method stub
 		//depending on character level, determine the skill and target
 		Character target = getTarget(enemy);
@@ -46,7 +46,7 @@ public class Enemy extends Character {
 		setRage(-1);
 	}
 
-	private Ability getAbility(CharacterParty cp) {
+	private Ability getAbility(Party cp) {
 		// TODO Auto-generated method stub
 		if(this.isRaging())
 		{
@@ -80,7 +80,7 @@ public class Enemy extends Character {
 		return null;
 	}
 
-	private Character getTarget(CharacterParty cp) {
+	private Character getTarget(Party cp) {
 		// TODO Auto-generated method stub
 		for(Iterator<Character> party = cp.getParty().iterator(); party.hasNext();)
 		{

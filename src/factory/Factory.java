@@ -2,7 +2,7 @@ package factory;
 
 import ability.Attack;
 import character.Character;
-import character.CharacterParty;
+import character.Party;
 import character.Enemy;
 import character.Player;
 
@@ -56,9 +56,9 @@ public class Factory {
 		return c;
 	}
 
-	public CharacterParty getEnemyParty(int level) {
+	public Party getEnemyParty(int level) {
 		// TODO Auto-generated method stub
-		CharacterParty party = new CharacterParty();
+		Party party = new Party();
 		
 		return null;
 	}

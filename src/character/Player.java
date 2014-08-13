@@ -43,7 +43,7 @@ public class Player extends Character {
 	}
 	
 	@Override
-	public void takeTurn(CharacterParty allies, CharacterParty enemy)
+	public void takeTurn(Party allies, Party enemy)
 	{
 		allies.showParty();
 		enemy.showParty();
