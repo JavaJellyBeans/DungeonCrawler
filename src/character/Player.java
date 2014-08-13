@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import ability.Ability;
 
-public class Player extends Character {
+public abstract class Player extends Character {
 
 	private int taunt;
 	
@@ -93,4 +93,6 @@ public class Player extends Character {
 		}
 		return actions.get(selection);
 	}
+	
+	public abstract void getNewAbility();
 }

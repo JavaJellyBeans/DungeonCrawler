@@ -2,12 +2,14 @@ package factory;
 
 import ability.Attack;
 import character.Character;
+import character.NullPlayer;
 import character.Party;
 import character.Enemy;
 import character.Player;
 
 public class Factory {
 
+	private Factory subFactory;
 	public Factory(){}
 	
 	public Character getCharacter(String info)
@@ -33,11 +35,37 @@ public class Factory {
 			return null;
 		}
 		Character c;
-		if(parsedInstructions.length == 2)
-			c = new Player(parsedInstructions[1], 20, 10, 10, 10, 10);
+		if(parsedInstructions.length == 3)
+		{
+			//c = new Player(parsedInstructions[1], 20, 10, 10, 10, 10);
+			//parse the instructions
+			switch(parsedInstructions[1])
+			{
+			case "Rogue":
+				subFactory = new RogueFactory();
+				c = subFactory.getCharacter(parsedInstructions[2]);
+				break;
+			case "Mage":
+				subFactory = new MageFactory();
+				c = subFactory.getCharacter(parsedInstructions[2]);
+				break;
+			case "Cleric":
+				subFactory = new ClericFactory();
+				c = subFactory.getCharacter(parsedInstructions[2]);
+				break;
+			case "Warrior":
+				subFactory = new WarriorFactory();
+				c = subFactory.getCharacter(parsedInstructions[2]);
+				break;
+			default:
+				c = new NullPlayer(parsedInstructions[2]);
+			}
+		}
 		else
-			c = new Player("Player", 20, 10, 10, 10, 10);
-		c.addAbility(new Attack());
+		{
+			System.out.println("Error: Incorrect number of arguments");
+			return null;
+		}
 		
 		return c;
 	}

@@ -50,6 +50,7 @@ public abstract class Character {
 		this.agi = agi;
 		level = 1;
 		abilities = new ArrayList<Ability>();
+		abilities.add(new Attack());
 		rage = 0;
 	}
 	
@@ -139,6 +140,8 @@ public abstract class Character {
 			return false;
 		}
 
+		public void setLevel(int newLevel){this.level = newLevel;}
+		public int getLevel(){return this.level;}
 		public void levelUp(int level) {
 			// TODO Auto-generated method stub
 			this.level = level;
