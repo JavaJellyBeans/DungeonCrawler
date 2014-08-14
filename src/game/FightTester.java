@@ -16,13 +16,15 @@ public class FightTester {
 		
 		//for(int i = 0; i < 20; i++)
 			//player.levelUp();
+		for(int i = 0; i < 4; i++)
+			player.levelUp();
+		
 		player.printDetail();
+
 		Fight fight = new Fight(player);
-		for(int i = 0; i < 5; i++)
-		{
-			player = fight.battle();
-			fight = new Fight(player);
-		}
+		fight.battle();
+
+			
 		player.printDetail();
 	}
 

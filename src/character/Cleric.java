@@ -39,10 +39,10 @@ public class Cleric extends Player {
 		Random gen = new Random();
 		this.setHpmax(this.getHpmax() + gen.nextInt(8) + 1);
 		this.setHp(this.getHpmax());
-		this.setAtk(getAtk() + (int) Math.ceil(this.getLevel()/7));
-		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/4));
-		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/7));
-		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/4));
+		this.setAtk(getAtk() + (int) Math.ceil(this.getLevel()/7)+1);
+		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/4)+1);
+		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/7)+1);
+		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/4)+1);
 		getNewAbility();
 	}
 

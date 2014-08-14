@@ -7,7 +7,7 @@ import java.util.Random;
 import ability.Ability;
 import ability.Attack;
 
-public class Enemy extends Character {
+public abstract class Enemy extends Character {
 
 	private int level;
 	
@@ -64,7 +64,7 @@ public class Enemy extends Character {
 		if(level > 4 && level <= 8)
 		{
 			//choose most recently acquired ability
-			return getAbilities().get(getAbilities().size());
+			return getAbilities().get(getAbilities().size()-1);
 		}
 		if(level > 8)
 		{
@@ -105,7 +105,7 @@ public class Enemy extends Character {
 			for(int i = 1; i < cp.getParty().size(); i++)
 			{
 				double temp = (double) cp.get(i).getHp()/cp.get(i).getHpmax();
-				if((hpcent > 0.0 && temp < hpcent && temp != 0.0) || hpcent == 0.0)
+				if(c.getHp() > 0 && ((hpcent > 0.0 && temp < hpcent && temp != 0.0) || hpcent == 0.0))
 				{
 					c = cp.get(i);
 					hpcent = temp;

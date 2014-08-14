@@ -19,7 +19,7 @@ public class ExpertAttack extends Ability {
 		if(hit < 100 - target.getAgi()) {
 			System.out.println("The attack hit!");
 			//calculate the damage
-			int damage = 10*((int) Math.round((double) user.getAtk()/target.getDef()))+(user.getAtk()-target.getDef())+10*user.getLevel();
+			int damage = 10*((int) Math.round((double) user.getAtk()/target.getDef()))+10*user.getLevel();
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);
 			//print message with how much damage was dealt

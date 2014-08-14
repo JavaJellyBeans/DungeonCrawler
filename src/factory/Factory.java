@@ -2,6 +2,7 @@ package factory;
 
 import ability.Attack;
 import character.Character;
+import character.NullEnemy;
 import character.NullPlayer;
 import character.Party;
 import character.Enemy;
@@ -78,7 +79,7 @@ public class Factory {
 			System.out.println("Error: Incorrect Enemy Character creation syntax");
 			return null;
 		}
-		Character c = new Enemy("Enemy", 20, 10, 10, 10, 10);
+		Character c = new NullEnemy("Enemy", 20, 10, 10, 10, 10);
 		c.addAbility(new Attack());
 		
 		return c;
@@ -86,7 +87,8 @@ public class Factory {
 
 	public Party getEnemyParty(int level) {
 		// TODO Auto-generated method stub
-		Party party = new Party();
+		subFactory = new EnemyFactory();
+		Party party = subFactory.getEnemyParty(level);
 		
 		return party;
 	}

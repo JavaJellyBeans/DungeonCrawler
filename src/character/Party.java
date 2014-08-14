@@ -20,7 +20,7 @@ public class Party extends Observable{
 	public Party()
 	{
 		party = new ArrayList<Character>();
-		level = 0;
+		level = 1;
 	}
 	
 	public Party(int level, Coordinate c)
@@ -158,5 +158,10 @@ public class Party extends Observable{
 			Character c = p.next();
 			System.out.println(c.details());
 		}
+	}
+
+	public void addAll(Party enemyParty) {
+		// TODO Auto-generated method stub
+		party.addAll(enemyParty.getParty());
 	}
 }

@@ -19,7 +19,7 @@ public class Fireball extends Ability {
 		if(hit < 100 - target.getAgi()) {
 			System.out.println("The attack hit!");
 			//calculate the damage
-			int damage = 10*((int) Math.round((double) user.getLevel()*3/target.getDef())+2%user.getLevel());
+			int damage = 10*((int) Math.round((double) user.getLevel()*3/target.getDef())+1);
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);
 			//print message with how much damage was dealt

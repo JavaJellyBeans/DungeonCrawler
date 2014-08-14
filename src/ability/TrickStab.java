@@ -19,7 +19,7 @@ public class TrickStab extends Ability {
 		if(hit < 100 - target.getAgi()) {
 			System.out.println("The attack hit!");
 			//calculate the damage
-			int damage = 10*((int) Math.round((double) user.getDex()/target.getAgi()))+(user.getDex()-target.getAgi());
+			int damage = 10*((int) Math.round((double) user.getDex()/target.getAgi()));
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);
 			//print message with how much damage was dealt

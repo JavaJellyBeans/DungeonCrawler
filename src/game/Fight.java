@@ -55,8 +55,6 @@ public class Fight {
 		this();
 		players = newPlayer;
 		enemies = f.getEnemyParty(players.getLevel());
-		enemies.add(f.getEnemyCharacter("Enemy"));
-		enemies.add(f.getEnemyCharacter("Enemy"));
 		//battle();
 	}
 	

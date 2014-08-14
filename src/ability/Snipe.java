@@ -23,11 +23,12 @@ public class Snipe extends Ability {
 			int damage;
 			if(hit > target.getAgi() + target.getLevel())
 			{
-				damage = 50*((int) Math.round((double) user.getAtk()/target.getDef()))+(user.getAtk()-target.getDef());
+				System.out.println("CRITICAL HIT!");
+				damage = 50*((int) Math.ceil((double) user.getAtk()/target.getDef()));
 			}
 			else
 			{
-				damage = 5*((int) Math.round((double) user.getAtk()/target.getDef()))+(user.getAtk()-target.getDef());
+				damage = 5*((int) Math.ceil((double) user.getAtk()/target.getDef()));
 			}
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);

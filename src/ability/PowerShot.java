@@ -19,7 +19,7 @@ public class PowerShot extends Ability {
 		if(hit < 100 - target.getAgi()) {
 			System.out.println("The attack hit!");
 			//calculate the damage
-			int damage = 5*((int) Math.round((double) (user.getAtk() + user.getDex())/target.getDef()))+(user.getAtk()+user.getDex()-target.getDef());
+			int damage = 5*((int) Math.round((double) (user.getAtk() + user.getDex())/target.getDef()));
 			//subtract the damage from the target's hp
 			target.setHp(target.getHp()-damage);
 			//print message with how much damage was dealt
