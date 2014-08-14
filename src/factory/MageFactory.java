@@ -10,7 +10,6 @@ public class MageFactory extends Factory {
 	public Character getCharacter(String info)
 	{
 		Character c = new Mage();
-		c.addAbility(new Attack());
 		//c.addAbility(new Fireball());
 		return c;
 	}

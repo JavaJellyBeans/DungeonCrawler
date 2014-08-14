@@ -27,28 +27,28 @@ public class Fight {
 		this();
 		players.addAll(newPlayers);
 		enemies.addAll(newEnemies);
-		battle();
+		//battle();
 	}
 	public Fight(Character newPlayer, Character newEnemy)
 	{
 		this();
 		players.add(newPlayer);
 		enemies.add(newEnemy);
-		battle();
+		//battle();
 	}
 	public Fight(ArrayList<Character> newPlayers, Character newEnemy)
 	{
 		this();
 		players.addAll(newPlayers);
 		enemies.add(newEnemy);
-		battle();
+		//battle();
 	}
 	public Fight(Character newPlayer, ArrayList<Character> newEnemies)
 	{
 		this();
 		players.add(newPlayer);
 		enemies.addAll(newEnemies);
-		battle();
+		//battle();
 	}
 	public Fight(Party newPlayer)
 	{
@@ -57,10 +57,10 @@ public class Fight {
 		enemies = f.getEnemyParty(players.getLevel());
 		enemies.add(f.getEnemyCharacter("Enemy"));
 		enemies.add(f.getEnemyCharacter("Enemy"));
-		battle();
+		//battle();
 	}
 	
-	public void battle()
+	public Party battle()
 	{
 		//list the players and enemies and their current/max hp
 		do{
@@ -94,6 +94,8 @@ public class Fight {
 		{
 			players.levelUp();
 		}
+		
+		return players;
 	}
 	
 	public boolean over()

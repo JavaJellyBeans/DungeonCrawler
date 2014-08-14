@@ -2,6 +2,11 @@ package character;
 
 import java.util.Random;
 
+import ability.Calm;
+import ability.Heal;
+import ability.MassHeal;
+import ability.MassRestore;
+
 public class Cleric extends Player {
 
 	public Cleric() {
@@ -48,18 +53,21 @@ public class Cleric extends Player {
 		{
 			//calm
 			//gets rid of rage
+			addAbility(new Calm());
 		}
 		if(this.getLevel() == 4)
 		{
 			//mass heal
+			addAbility(new MassHeal());
 		}
 		if(this.getLevel() == 7)
 		{
 			//mass restore (heal + calm)
+			addAbility(new MassRestore());
 		}
 		if(this.getLevel() == 10)
 		{
-			//revive
+			//mass revive
 		}
 	}
 

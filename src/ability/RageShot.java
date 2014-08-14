@@ -5,7 +5,7 @@ import character.Character;
 
 public class RageShot extends Ability {
 
-	public RageShot(){this.level = 0; this.helpful = false; this.aoe = false;}
+	public RageShot(){this.level = 4; this.helpful = false; this.aoe = false;}
 	
 	@Override
 	public void use(Character user, Character target) {

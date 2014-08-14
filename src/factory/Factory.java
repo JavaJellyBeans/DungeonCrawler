@@ -39,7 +39,7 @@ public class Factory {
 		{
 			//c = new Player(parsedInstructions[1], 20, 10, 10, 10, 10);
 			//parse the instructions
-			switch(parsedInstructions[1])
+			switch(parsedInstructions[2])
 			{
 			case "Rogue":
 				subFactory = new RogueFactory();
@@ -64,7 +64,7 @@ public class Factory {
 		else
 		{
 			System.out.println("Error: Incorrect number of arguments");
-			return null;
+			return new NullPlayer("Null Character");
 		}
 		
 		return c;
@@ -88,7 +88,7 @@ public class Factory {
 		// TODO Auto-generated method stub
 		Party party = new Party();
 		
-		return null;
+		return party;
 	}
 	
 	

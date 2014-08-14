@@ -10,8 +10,7 @@ public class WarriorFactory extends Factory {
 	@Override
 	public Character getCharacter(String info)
 	{
-		Character c = new Warrior();
-		c.addAbility(new Attack());
+		Character c = new Warrior(info);
 		return c;
 	}
 }

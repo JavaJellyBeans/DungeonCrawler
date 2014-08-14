@@ -121,7 +121,7 @@ public abstract class Character {
 			return this.toString() + "\n\tAttack:\t" + this.atk + "\n\tDefense:\t" + this.def + "\n\tAgility:\t" + this.agi + "\n\tDexterity:\t" + this.dex;
 		}
 		
-		public void takeTurn(Party allies, Party enemy){};
+		public abstract void takeTurn(Party allies, Party enemy);
 
 		public void setTaunt(int taunt){}
 		public boolean isTaunting(){return false;}
@@ -131,7 +131,7 @@ public abstract class Character {
 			if(rage > 0)
 				this.rage = rage;
 			else if(rage < 0 && this.rage > 0)
-				this.rage =- rage;
+				this.rage =+ rage;
 		}
 		public boolean isRaging()
 		{	

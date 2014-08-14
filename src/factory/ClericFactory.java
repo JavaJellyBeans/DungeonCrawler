@@ -1,6 +1,7 @@
 package factory;
 
 import ability.Attack;
+import ability.Heal;
 import character.Character;
 import character.Cleric;
 import character.Mage;
@@ -12,8 +13,7 @@ public class ClericFactory extends Factory {
 	public Character getCharacter(String info)
 	{
 		Character c = new Cleric();
-		c.addAbility(new Attack());
-		//c.addAbility(new heal());
+		c.addAbility(new Heal());
 		return c;
 	}
 }
