@@ -9,8 +9,6 @@ import ability.Attack;
 
 public abstract class Enemy extends Character {
 
-	private int level;
-	
 	public Enemy() {
 		// TODO Auto-generated constructor stub
 		super();
@@ -27,19 +25,11 @@ public abstract class Enemy extends Character {
 		
 	}
 
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
 	
 	@Override
 	public void takeTurn(Party allies, Party enemy) {
 		// TODO Auto-generated method stub
-		//depending on character level, determine the skill and target
+		//depending on character getLevel(), determine the skill and target
 		if(this.getHp() > 0)
 		{
 			Character target = getTarget(enemy);
@@ -55,20 +45,20 @@ public abstract class Enemy extends Character {
 		{
 			return new Attack();
 		}
-		if(level <= 4)
+		if(getLevel() <= 4)
 		{
 			//choose ability at random
 			Random gen = new Random();
 			return getAbilities().get(gen.nextInt(getAbilities().size()));
 		}
-		if(level > 4 && level <= 8)
+		if(getLevel() > 4 && getLevel() <= 8)
 		{
 			//choose most recently acquired ability
 			return getAbilities().get(getAbilities().size()-1);
 		}
-		if(level > 8)
+		if(getLevel() > 8)
 		{
-			//choose highest level ability
+			//choose highest getLevel() ability
 			Ability use = null;
 			for(Iterator<Ability> ab = getAbilities().iterator(); ab.hasNext();)
 			{
@@ -91,13 +81,13 @@ public abstract class Enemy extends Character {
 			if(c.isTaunting())
 				return c;
 		}
-		if(level <= 3)
+		if(getLevel() <= 3)
 		{
 			//choose one at random
 			Random gen = new Random();
 			return cp.get(gen.nextInt(cp.getParty().size()));
 		}
-		if(level > 4 && level <= 8)
+		if(getLevel() > 4 && getLevel() <= 8)
 		{
 			//pick character with lowest hp %
 			Character c = cp.get(0);
@@ -113,7 +103,7 @@ public abstract class Enemy extends Character {
 			}
 			return c;
 		}
-		if(level > 8)
+		if(getLevel() > 8)
 		{
 			//pick character with lowest hp
 			int temp = 1000000;
