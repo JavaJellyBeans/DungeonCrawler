@@ -12,7 +12,7 @@ public class Dungeon {
 	
 	private Dungeon() {
 		map = Map.getInstance();
-		player = new Player(null, map.getStart());
+		player = new PlayerParty(null, map.getStart());
 		obs = LocationObserver.getInstance();
 		player.addObserver(obs);
 	}

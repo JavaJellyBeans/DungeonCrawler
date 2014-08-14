@@ -25,8 +25,8 @@ public class LocationObserver implements Observer {
 	}
 
 	public void update(Observable obs, Object arg) {
-		if (obs instanceof Player) {
-			Party player = (Player)obs;
+		if (obs instanceof PlayerParty) {
+			Party player = (PlayerParty)obs;
 			Coordinate coord = player.getLocation();
 			if(EnemyLocator.encounter(coord)) {
 				Party enemy = EnemyLocator.getEncounter();

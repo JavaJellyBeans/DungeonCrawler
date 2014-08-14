@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import dungeonGeneration.Coordinate;
 
-public class Enemy extends Party {
+public class EnemyParty extends Party {
 
-	public Enemy(ArrayList list, Coordinate start) {
+	public EnemyParty(ArrayList list, Coordinate start) {
 		super(list, start);
 	}
 

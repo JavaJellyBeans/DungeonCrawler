@@ -34,7 +34,7 @@ public class RoomFactory {
 					room.setBehavior(new EmptyBehavior(new NullEffect()));
 				num = r.nextInt(10);
 				if (num < 1) {
-					Party p = new Enemy(null, new Coordinate(x,y));
+					Party p = new EnemyParty(null, new Coordinate(x,y));
 					EnemyLocator.add(p);
 					/*room.setOccupied(true);*/
 				}

@@ -36,7 +36,7 @@ public class Map {
 		
 		boolean newLoc = temp.moveParty(d);
 		
-		if (p instanceof Player) {
+		if (p instanceof PlayerParty) {
 			temp.getRoom().getBehavior().getEffect().description();
 		}
 		return newLoc;
