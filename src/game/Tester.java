@@ -4,7 +4,11 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import character.Cleric;
+import character.Mage;
 import character.Party;
+import character.Rogue;
+import character.Warrior;
 import dungeonGeneration.Display;
 import dungeonGeneration.Enumerations.Direction;
 import dungeonGeneration.Map;
@@ -16,6 +20,10 @@ public class Tester {
 		Display.display(dungeon);
 		Map map = dungeon.getMap();
 		Party player = dungeon.getPlayer();
+		player.add(new Warrior());
+		player.add(new Rogue());
+		player.add(new Mage());
+		player.add(new Cleric());
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String line = "";
@@ -57,7 +65,7 @@ public class Tester {
 		   in.close();
 		   
 		} catch (Exception ex) {
-			System.out.println(ex);
+System.out.println(ex);
 		} finally {
 			try {in.close();} 
 			catch (Exception ex) {}

@@ -31,6 +31,8 @@ public class LocationObserver implements Observer {
 			if(EnemyLocator.encounter(coord)) {
 				Party enemy = EnemyLocator.getEncounter();
 				System.out.println("There's a fight!");
+				Fight fight = new Fight(player);
+				player = fight.battle();
 				//Fight.fight(player, enemy);
 			}
 			if (coord.equals(map.getExit())) {
