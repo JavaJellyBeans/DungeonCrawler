@@ -2,6 +2,11 @@ package character;
 
 import java.util.Random;
 
+import ability.DrainLife;
+import ability.Lightning;
+import ability.LightningStorm;
+import ability.MassFireball;
+
 public class Mage extends Player {
 
 	public Mage() {
@@ -47,22 +52,26 @@ public class Mage extends Player {
 		if(this.getLevel() == 2)
 		{
 			//lightning strike
-			//weak double hit to target enemy
+			//deals more damage the less hp the opponent has
+			addAbility(new Lightning());
 		}
 		if(this.getLevel() == 4)
 		{
 			//mass fireball
 			//aoe hits everything
+			addAbility(new MassFireball());
 		}
 		if(this.getLevel() == 7)
 		{
 			//drain life
 			//damage + heal
+			addAbility(new DrainLife());
 		}
 		if(this.getLevel() == 10)
 		{
-			//meteor storm
+			//thunderstorm
 			//aoe hits everything
+			addAbility(new LightningStorm());
 		}
 	}
 }

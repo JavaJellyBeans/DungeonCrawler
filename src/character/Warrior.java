@@ -2,6 +2,9 @@ package character;
 
 import java.util.Random;
 
+import ability.DexAttack;
+import ability.PowerCleave;
+
 public class Warrior extends Player {
 
 	public Warrior() {
@@ -46,11 +49,13 @@ public class Warrior extends Player {
 		{
 			//power cleave
 			//deals bonus damage based on user's attack
+			addAbility(new PowerCleave());
 		}
 		if(this.getLevel() == 4)
 		{
 			//dexterous swing
 			//deals bonus damage based on user's dex
+			addAbility(new DexAttack());
 		}
 		if(this.getLevel() == 7)
 		{
