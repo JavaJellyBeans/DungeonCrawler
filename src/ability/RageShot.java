@@ -40,7 +40,7 @@ public class RageShot extends Ability {
 	}
 	
 	public String toString(){
-		return "Attack:\t" + getDescription();
+		return "Rage Shot:\t" + getDescription();
 	}
 
 }

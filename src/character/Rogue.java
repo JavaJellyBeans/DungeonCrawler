@@ -37,8 +37,8 @@ public class Rogue extends Player {
 		this.setHp(this.getHpmax());
 		this.setAtk(getAtk() + (int) Math.ceil(this.getLevel()/7)+1);
 		this.setDef(getDef() + (int) Math.ceil(this.getLevel()/7)+1);
-		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/2)+1);
-		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/2)+1);
+		this.setAgi(getAgi() + (int) Math.ceil(this.getLevel()/4)+1);
+		this.setDex(getDex() + (int) Math.ceil(this.getLevel()/4)+1);
 		getNewAbility();
 	}
 

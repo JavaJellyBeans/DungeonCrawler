@@ -8,7 +8,7 @@ public class Dragon extends Enemy {
 
 	public Dragon() {
 		// TODO Auto-generated constructor stub
-		super("Gargoyle", 100, 35, 35, 35, 35);
+		super("Dragon", 100, 45, 45, 45, 45);
 		setLevel(15);
 		addAbility(new PowerCleave());
 		addAbility(new Fireball());

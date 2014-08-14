@@ -16,7 +16,7 @@ public class FightTester {
 		
 		//for(int i = 0; i < 20; i++)
 			//player.levelUp();
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 14; i++)
 			player.levelUp();
 		
 		player.printDetail();

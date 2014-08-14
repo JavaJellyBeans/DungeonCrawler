@@ -3,7 +3,9 @@ package character;
 import java.util.Random;
 
 import ability.DexAttack;
+import ability.ExpertAttack;
 import ability.PowerCleave;
+import ability.TrickStab;
 
 public class Warrior extends Player {
 
@@ -61,11 +63,13 @@ public class Warrior extends Player {
 		{
 			//trick stab
 			//deals damage based on dex vs agi instead of atk vs def
+			addAbility(new TrickStab());
 		}
 		if(this.getLevel() == 10)
 		{
 			//expert attack
 			//deals bonus damage based on level
+			addAbility(new ExpertAttack());
 		}
 	}
 
