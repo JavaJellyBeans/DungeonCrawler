@@ -42,7 +42,6 @@ public class Rogue extends Player {
 		getNewAbility();
 	}
 
-	@Override
 	public void getNewAbility() {
 		// TODO Auto-generated method stub
 		if(this.getLevel() == 2)

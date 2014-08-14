@@ -16,7 +16,6 @@ public class NullPlayer extends Player {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void getNewAbility() {
 		// TODO Auto-generated method stub
 		

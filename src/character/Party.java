@@ -30,11 +30,6 @@ public class Party extends Observable{
 		this.coord = c;
 	}
 	
-	public void addCharacter(Character c)
-	{
-		party.add(c);
-	}
-	
 	public void levelUp()
 	{
 		level++;

@@ -97,6 +97,4 @@ public abstract class Player extends Character {
 		}
 		return actions.get(selection);
 	}
-	
-	public abstract void getNewAbility();
 }
